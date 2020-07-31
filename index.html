@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--specifies what type of document this is -->
+
+<html>
+<title>Login</title>
+
+<head>
+    <meta name="viewport" content="width= device-width, inital-scale= 1">
+    <link rel="stylesheet" type="text/css" href="loginpage.css">
+</head>
+
+<body>
+    <!--form for the username and password -->
+    <div id="Login_info">
+        <form action="/login" method="POST">
+            <div id=name>
+                <label for="username">
+                    <span style="color: black">Username:</span>
+                </label>
+                <!--change color to white for username and password-->
+                <input type="text" id="username" name="username" placeholder="Enter Username">
+            </div>
+            <div id="password">
+                <label for="password">
+                    <span style="color: black">Password:</span>
+                </label>
+                <input type="password" id="pswd" name="password" placeholder="Enter Password">
+            </div>
+            <input id="Submit" type="submit" value="Submit">
+    </div>
+    </form>
+    <form action="/newuser" method="GET">
+        <input id="account" type="submit" value="Create Account">
+    </form>
+</body>
+
+</html>
