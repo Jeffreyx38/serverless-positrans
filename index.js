@@ -65,6 +65,24 @@ app.post('/login', function (req, res, next) {
     });
 })
 
+app.post('/observation', function (req, res, next) {
+    console.log("Current user " + currentUser);
+
+    let observation = req.body.observation;
+
+    console.log(observation);
+
+    var recordInserted = `INSERT INTO observation (user_ID, OBSERVATION) VALUES (${currentUser}, '${observation}')`;
+    connection.query(recordInserted, function (err, result) {
+        if (err) throw err;
+        console.log(`Observation inserted to user ID: ${currentUser}.`);
+        res.redirect("/dev/homepage" + "?id=" + `${currentUser}`);
+    });
+
+    // let id = req.url;
+    // console.log(id);
+});
+
 app.get('/homepage', function (req, res) {
     //console.log(__dirname);
     currentUser = req.query.id;
