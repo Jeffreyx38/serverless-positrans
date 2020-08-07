@@ -83,6 +83,22 @@ app.post('/observation', function (req, res, next) {
     // console.log(id);
 });
 
+app.get('/getobservation', function (req, res) {
+
+
+    var observatioQuery = `SELECT OBSERVATION, DATE 
+        FROM user, observation 
+        WHERE (user.user_ID = observation.user_ID) 
+        AND (observation.user_ID = ${currentUser});`;
+    connection.query(observatioQuery, function (err, result) {
+        if (err) throw err;
+        let record = JSON.parse(JSON.stringify(result));
+        res.send(record);
+    });
+
+
+});
+
 app.get('/homepage', function (req, res) {
     //console.log(__dirname);
     currentUser = req.query.id;
@@ -102,6 +118,11 @@ app.get('/logout', function (req, res) {
 app.get('/register', function (req, res) {
     //console.log(__dirname);
     res.sendFile(__dirname + "/register.html");
+});
+
+app.get('/goback', function (req, res) {
+    //console.log(__dirname);
+    res.redirect("/dev/homepage" + "?id=" + `${currentUser}`);
 });
 
 

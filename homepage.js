@@ -21,13 +21,13 @@ const sendHttpRequest = (method, url, data) => {
 
 const logoutView = () => {
     sendHttpRequest('GET', '/dev/logout').then(responseData => {
-        console.log(responseData);
+        window.location.assign(responseData);
     });
 };
 
 const mylistView = () => {
     sendHttpRequest('GET', '/dev/mylist').then(responseData => {
-        console.log(responseData);
+        window.location.assign(responseData);
     });
 };
 
