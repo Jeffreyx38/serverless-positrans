@@ -3,17 +3,89 @@ const bodyParser = require('body-parser');
 const express = require('express')
 const app = express()
 const AWS = require('aws-sdk');
-
+var mysql = require('mysql');
 
 const IS_OFFLINE = process.env.IS_OFFLINE;
 
 app.use(bodyParser.json({ strict: false }));
 app.use(express.static(__dirname + "/"));
 
+
+var currentUser;
+var connection = mysql.createConnection({
+    connectionLimit: 100,
+    host: '35.192.103.127',
+    port: 3306,
+    user: 'jz553',
+    password: 'student031221',
+    database: 'positrans'
+});
+
+connection.connect(function (err) {
+    if (err) throw err;
+    console.log("connected to db successful." + "\r\n")
+
+});
+
+
 app.get('/test', function (req, res) {
     console.log(__dirname);
-    res.send('Hello World!');
+    res.sendFile(__dirname + "/index.html");
 })
+
+app.post('/login', function (req, res, next) {
+
+    const { username, password } = req.body;
+    console.log(username);
+    console.log(password);
+    var userExist = `SELECT user_ID,NAME FROM user WHERE NAME='${username}'`;
+    console.log(userExist);
+    connection.query(userExist, function (error, result) {
+
+        if (error) {
+            console.log(error);
+        }
+        if (result.length > 0) {
+            console.log(`${username} already exists.` + "\r\n");
+            let data = result[0];
+            let id = data.user_ID;
+            res.redirect("/dev/homepage" + "?id=" + `${id}`);
+        } else {
+            // var recordInserted = `INSERT INTO user (NAME, PASSWORD) VALUES ('${username}', '${password}')`;
+            // connection.query(recordInserted, function (err, result) {
+            //     if (err) throw err;
+            //     let id = result.insertId;
+            //     console.log(`${username} record inserted.`);
+            //     res.redirect("/homepage" + "?id=" + `${id}`);
+            //  });
+            //res.send("Please create account!");
+            console.log("Please create account!");
+
+        }
+    });
+})
+
+app.get('/homepage', function (req, res) {
+    //console.log(__dirname);
+    currentUser = req.query.id;
+    res.sendFile(__dirname + "/homepage.html");
+});
+
+app.get('/mylist', function (req, res) {
+    //console.log(__dirname);
+    res.sendFile(__dirname + "/mylist.html");
+});
+
+app.get('/logout', function (req, res) {
+    //console.log(__dirname);
+    res.sendFile(__dirname + "/index.html");
+});
+
+app.get('/register', function (req, res) {
+    //console.log(__dirname);
+    res.sendFile(__dirname + "/register.html");
+});
+
 
 // if (IS_OFFLINE === 'true') {
 //     dynamoDb = new AWS.DynamoDB.DocumentClient({

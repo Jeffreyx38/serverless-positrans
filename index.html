@@ -6,18 +6,17 @@
 
 <head>
     <meta name="viewport" content="width= device-width, inital-scale= 1">
-    <link rel="stylesheet" type="text/css" href="loginpage.css">
+    <script src="login.js" defer></script>
 </head>
 
 <body>
     <!--form for the username and password -->
     <div id="Login_info">
-        <form action="/login" method="POST">
+        <form id="getForm">
             <div id=name>
                 <label for="username">
                     <span style="color: black">Username:</span>
                 </label>
-                <!--change color to white for username and password-->
                 <input type="text" id="username" name="username" placeholder="Enter Username">
             </div>
             <div id="password">
@@ -26,12 +25,10 @@
                 </label>
                 <input type="password" id="pswd" name="password" placeholder="Enter Password">
             </div>
-            <input id="Submit" type="submit" value="Submit">
+            <input type="submit" value="Submit">
+        </form>
     </div>
-    </form>
-    <form action="/newuser" method="GET">
-        <input id="account" type="submit" value="Create Account">
-    </form>
+    <button id="register" type="button">Create Account</button>
 </body>
 
 </html>
