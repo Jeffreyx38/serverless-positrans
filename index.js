@@ -14,11 +14,11 @@ app.use(express.static(__dirname + "/"));
 var currentUser;
 var connection = mysql.createConnection({
     connectionLimit: 100,
-    host: '35.192.103.127',
+    host: process.env.databaseHost,
     port: 3306,
-    user: 'jz553',
-    password: 'student031221',
-    database: 'positrans'
+    user: process.env.databaseUser,
+    password: process.env.databasePassword,
+    database: process.env.databaseName
 });
 
 connection.connect(function (err) {

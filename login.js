@@ -35,34 +35,34 @@ const sendData = (username, password) => {
         })
 };
 
-function requestXML(username, password) {
+// function requestXML(username, password) {
 
-    console.log(username);
-    console.log(password);
+//     console.log(username);
+//     console.log(password);
 
-    let json = JSON.stringify({
-        username: username,
-        password: password
-    });
+//     let json = JSON.stringify({
+//         username: username,
+//         password: password
+//     });
 
-    console.log(json);
+//     console.log(json);
 
-    var xhttp = new XMLHttpRequest();
+//     var xhttp = new XMLHttpRequest();
 
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
-            window.location.replace(this.responseText);
-            //document.getElementById("").innerHTML = this.responseText;
-            //   console.log(JSON.parse(this.responseText));
-            //   htmlState(JSON.parse(this.responseText));
-        }
-    };
-    xhttp.open("POST", "/dev/login", true);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(json);
+//     xhttp.onreadystatechange = function () {
+//         if (this.readyState == 4 && this.status == 200) {
+//             console.log(this.responseText);
+//             window.location.replace(this.responseText);
+//             //document.getElementById("").innerHTML = this.responseText;
+//             //   console.log(JSON.parse(this.responseText));
+//             //   htmlState(JSON.parse(this.responseText));
+//         }
+//     };
+//     xhttp.open("POST", "/dev/login", true);
+//     xhttp.setRequestHeader("Content-type", "application/json");
+//     xhttp.send(json);
 
-}
+// }
 
 const registerView = () => {
     sendHttpRequest('GET', '/dev/register').then(responseData => {
