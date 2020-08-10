@@ -99,6 +99,38 @@ app.get('/getobservation', function (req, res) {
 
 });
 
+app.post('/register', function (req, res, next) {
+
+    let username = req.body.username;
+    let password = req.body.password;
+
+    var userExist = `SELECT user_ID,NAME FROM user WHERE NAME='${username}'`;
+    connection.query(userExist, function (error, result) {
+
+        if (error) {
+            console.log(error);
+        }
+        if (result.length > 0) {
+            console.log(`${username} already exists.` + "\r\n");
+            let data = result[0];
+            let id = data.user_ID;
+            res.send(`${username} already exists.` + "\r\n")
+            //return user exist 
+            //res.redirect("/homepage" + "?id=" + `${id}`);
+        } else {
+            var recordInserted = `INSERT INTO user (NAME, PASSWORD) VALUES ('${username}', SHA1('${password}'))`;
+            connection.query(recordInserted, function (err, result) {
+                if (err) throw err;
+                let id = result.insertId;
+                console.log(`${username} record inserted.`);
+                res.send(`${username} record inserted.`)
+                //res.redirect("/homepage" + "?id=" + `${id}`);
+
+            });
+        }
+    });
+})
+
 app.get('/homepage', function (req, res) {
     //console.log(__dirname);
     currentUser = req.query.id;

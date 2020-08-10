@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+
+<body>
+
+    <div class="">
+        <form>
+            <table>
+                <tr>
+                    <label for=""></label>
+                    <h1>User Registration</h1>
+                </tr>
+                <br>
+                <tr>
+                    <label for="fullName">Full Name</label>
+                    <input type="name" id="fullName" name="Full Name" placeholder="Example Name">
+                </tr>
+                <br>
+                <tr>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="valid@example.com">
+                </tr>
+                <br>
+                <tr>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter Password" name="Passwod">
+                    <!--changes-->
+                </tr>
+                <br>
+                <tr>
+                    <label for="passwordConfirm">Confrim Password</label>
+                    <input type="password" id="passwordConfirm" name="Confirm Password" placeholder="Confirm Password">
+                </tr>
+                <br>
+                <div id="formErrors" style="display:none">
+                    <ul></ul>
+                </div>
+                <br>
+                <tr>
+                    <input type="submit" id="submitt" name="Register Button" value="Register">
+                </tr>
+                <div id="data"></div>
+            </table>
+        </form>
+        <button id="cancel" type="button">Cancel</button>
+    </div>
+    <script src="register.js" defer></script>
+</body>
+
+</html>
