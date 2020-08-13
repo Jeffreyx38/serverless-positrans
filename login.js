@@ -19,12 +19,6 @@ const sendHttpRequest = (method, url, data) => {
     });
 };
 
-// const getData = () => {
-//     sendHttpRequest('GET', '/dev/login').then(responseData => {
-//         console.log(responseData);
-//     });
-// };
-
 const sendData = (username, password) => {
     sendHttpRequest('POST', '/dev/login', {
         username: username,
@@ -32,58 +26,19 @@ const sendData = (username, password) => {
     })
         .then(responseData => {
 
-            if (responseData.ok){
+            if (responseData.ok) {
                 console.log(responseData);
                 window.location.assign(responseData.url);
             }
             return responseData.text();
-        }).then(text =>{
+        }).then(text => {
             document.getElementById("data").innerHTML = text;
         })
-        .catch(err =>{
+        .catch(err => {
             console.log(err);
             document.getElementById("data").innerHTML = "Please create Account."
         })
 };
-
-function isValidUrl(string) {
-    try {
-        new URL(string);
-    } catch (_) {
-        return false;
-    }
-
-    return true;
-}
-
-// function requestXML(username, password) {
-
-//     console.log(username);
-//     console.log(password);
-
-//     let json = JSON.stringify({
-//         username: username,
-//         password: password
-//     });
-
-//     console.log(json);
-
-//     var xhttp = new XMLHttpRequest();
-
-//     xhttp.onreadystatechange = function () {
-//         if (this.readyState == 4 && this.status == 200) {
-//             console.log(this.responseText);
-//             window.location.replace(this.responseText);
-//             //document.getElementById("").innerHTML = this.responseText;
-//             //   console.log(JSON.parse(this.responseText));
-//             //   htmlState(JSON.parse(this.responseText));
-//         }
-//     };
-//     xhttp.open("POST", "/dev/login", true);
-//     xhttp.setRequestHeader("Content-type", "application/json");
-//     xhttp.send(json);
-
-// }
 
 const registerView = () => {
     sendHttpRequest('GET', '/dev/register').then(responseData => {
