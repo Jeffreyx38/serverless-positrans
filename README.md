@@ -1,4 +1,5 @@
-# serverless-demo
+# Positrans - records daily positive statements 
+
 ![Image of node](https://github.com/Jeffreyx38/serverless-positrans/blob/master/images/Positrans.png)
 
 Login:
