@@ -1,4 +1,4 @@
-# Positrans - records daily positive statements 
+# Positrans - records daily positive experiences 
 
 ![Image of node](https://github.com/Jeffreyx38/serverless-positrans/blob/master/images/Positrans.png)
 
