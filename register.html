@@ -3,13 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous">
     <title>User Registration</title>
 </head>
 
 <body>
-
-    <div class="">
-        <form>
+    <div class="container">
+        <form class="form-horizontal">
             <table>
                 <tr>
                     <label for=""></label>
@@ -17,23 +18,23 @@
                 </tr>
                 <br>
                 <tr>
-                    <label for="fullName">Full Name</label>
+                    <label class="col-sm-2 control-label" for="fullName">Full Name</label>
                     <input type="name" id="fullName" name="Full Name" placeholder="Example Name">
                 </tr>
                 <br>
                 <tr>
-                    <label for="email">Email</label>
+                    <label class="col-sm-2 control-label" for="email">Email</label>
                     <input type="email" id="email" name="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="valid@example.com">
                 </tr>
                 <br>
                 <tr>
-                    <label for="password">Password</label>
+                    <label class="col-sm-2 control-label" for="password">Password</label>
                     <input type="password" id="password" placeholder="Enter Password" name="Passwod">
                     <!--changes-->
                 </tr>
                 <br>
                 <tr>
-                    <label for="passwordConfirm">Confrim Password</label>
+                    <label class="col-sm-2 control-label" for="passwordConfirm">Confrim Password</label>
                     <input type="password" id="passwordConfirm" name="Confirm Password" placeholder="Confirm Password">
                 </tr>
                 <br>
@@ -42,12 +43,12 @@
                 </div>
                 <br>
                 <tr>
-                    <input type="submit" id="submitt" name="Register Button" value="Register">
+                    <input class="btn btn-success" type="submit" id="submitt" name="Register Button" value="Register">
+                    <button class="btn btn-danger" id="cancel" type="button">Cancel</button>
                 </tr>
                 <div id="data"></div>
             </table>
         </form>
-        <button id="cancel" type="button">Cancel</button>
     </div>
     <script src="register.js" defer></script>
 </body>

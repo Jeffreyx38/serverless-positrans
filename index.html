@@ -6,29 +6,43 @@
 
 <head>
     <meta name="viewport" content="width= device-width, inital-scale= 1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous">
     <script src="login.js" defer></script>
 </head>
 
 <body>
     <!--form for the username and password -->
-    <div id="Login_info">
-        <form id="getForm">
-            <div id=name>
-                <label for="username">
-                    <span style="color: black">Username:</span>
-                </label>
-                <input type="text" id="username" name="username" placeholder="Enter Username">
+    <div class="container" style="color:green">
+        <h1>Positrans</h1>
+    </div>
+    <div class="container">
+        <h4>Log In</h4>
+        <form class="form-horizontal" id="getForm">
+            <div class="form-group" id=name>
+                <label for="username" class="col-sm-2 control-label">Username: </label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
+                </div>
             </div>
-            <div id="password">
-                <label for="password">
-                    <span style="color: black">Password:</span>
-                </label>
-                <input type="password" id="pswd" name="password" placeholder="Enter Password">
+            <div class="form-group" id="password">
+                <label for="password" class="col-sm-2 control-label">Password: </label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="pswd" name="password" placeholder="Enter Password">
+                </div>
             </div>
-            <input type="submit" value="Submit">
+            <div class="container">
+                <button class="btn btn-success" type="submit">Login</button>
+                <button class="btn btn-secondary" id="register" type="submit">Create Account</button>
+                <label>
+                    <input type="checkbox">Remember me
+                </label>
+                <div id="data"></div>
+            </div>
+            
         </form>
     </div>
-    <button id="register" type="button">Create Account</button>
+
 </body>
 
 </html>

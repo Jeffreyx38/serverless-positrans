@@ -14,16 +14,16 @@ const sendHttpRequest = (method, url, data) => {
         if (contentType && contentType.indexOf("application/json") !== -1) {
             return response.json();
         } else {
-            return response.url;
+            return response;
         }
     });
 };
 
-const getData = () => {
-    sendHttpRequest('GET', '/dev/login').then(responseData => {
-        console.log(responseData);
-    });
-};
+// const getData = () => {
+//     sendHttpRequest('GET', '/dev/login').then(responseData => {
+//         console.log(responseData);
+//     });
+// };
 
 const sendData = (username, password) => {
     sendHttpRequest('POST', '/dev/login', {
@@ -31,9 +31,30 @@ const sendData = (username, password) => {
         password: password
     })
         .then(responseData => {
-            window.location.assign(responseData);
+
+            if (responseData.ok){
+                console.log(responseData);
+                window.location.assign(responseData.url);
+            }
+            return responseData.text();
+        }).then(text =>{
+            document.getElementById("data").innerHTML = text;
+        })
+        .catch(err =>{
+            console.log(err);
+            document.getElementById("data").innerHTML = "Please create Account."
         })
 };
+
+function isValidUrl(string) {
+    try {
+        new URL(string);
+    } catch (_) {
+        return false;
+    }
+
+    return true;
+}
 
 // function requestXML(username, password) {
 
@@ -66,7 +87,7 @@ const sendData = (username, password) => {
 
 const registerView = () => {
     sendHttpRequest('GET', '/dev/register').then(responseData => {
-        window.location.assign(responseData);
+        window.location.assign(responseData.url);
     });
 };
 

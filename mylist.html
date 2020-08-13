@@ -5,14 +5,19 @@
 
 <head>
     <!--  <meta name= "viewport" content= "width= device-width, inital-scale= 1">-->
-   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous">
 </head>
 
 <body onload="request()">
-    <h1 id=header>Here is a list of your Positive Experiences :)</h1>
-    <p id="text"> </p>
-    <button id="goback" type="button">Back</button>
-    <button id="logout" type="button">Logout</button>
+    <div class="container" style="color:green">
+        <h1>Here is a list of your Positive Experiences</h1>
+    </div>
+    <div class="container">
+        <p id="text"> </p>
+        <button class="btn btn-primary" id="goback" type="button">Back</button>
+        <button class="btn btn-danger" id="logout" type="button">Logout</button>
+    </div>
 </body>
 <script src="mylist.js"></script>
 

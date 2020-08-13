@@ -6,17 +6,23 @@
 <head>
     <meta name="viewport" content="width= device-width, inital-scale= 1">
     <script src="homepage.js" defer></script>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous">
 </head>
 
 <body>
-    <button id="logout" type="button">Logout</button>
-    <button id="mylist" type="button">My List</button>
-    <form id="getForm">
-        <textarea name="observation" id="observation" rows="20" cols="100" placeholder="Please Write A Positive Observation..."></textarea>
+    <div class="container" style="color:green">
+        <h1>Observations Entry</h1>
+    </div>
+    <div class="container">
         
-        <input id="submit" type="submit" value="submit">
-    </form>
+        <button class="btn btn-danger" id="logout" type="button">Logout</button>
+        <button class="btn btn-primary" id="mylist" type="button">My List</button>
+        <form id="getForm">
+            <textarea name="observation" id="observation" class="form-control" rows="3" placeholder="Please Write A Positive Observation..."></textarea>
+            <input class="btn btn-success" id="submit" type="submit" value="Submit">
+        </form>
+    </div>
 </body>
 
 </html>
